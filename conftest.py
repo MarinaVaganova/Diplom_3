@@ -45,13 +45,6 @@ def create_and_delete_new_user():
     token = response_body['accessToken']
     requests.delete(URLs.USER_DELETE, headers={'Authorization': token})
 
-#@pytest.fixture
-#def create_user():
-    #email = create_random_email()
-    #password = create_random_password()
-    #name = create_random_name()
-    #return email, password, name
-
 @pytest.fixture
 def create_and_delete_user_and_order(create_and_delete_new_user):
     token = create_and_delete_new_user[1]['accessToken']
